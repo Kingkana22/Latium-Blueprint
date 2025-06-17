@@ -1,1 +1,13 @@
-print("Halo dunia LATIUM")
+import socket
+
+def find_free_port():
+    s = socket.socket()
+    s.bind(('', 0))  # Bind ke port random
+    port = s.getsockname()[1]
+    s.close()
+    return port
+
+if __name__ == "__main__":
+    port = find_free_port()
+    print(f"[🚀] LATIUM Server running on http://127.0.0.1:{port}")
+    app.run(host="0.0.0.0", port=port)
